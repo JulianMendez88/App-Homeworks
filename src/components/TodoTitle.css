@@ -1,0 +1,8 @@
+.TodoTitle{
+    font-size: 40px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(49, 11, 11);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
