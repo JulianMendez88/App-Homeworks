@@ -8,8 +8,8 @@ import { TodoTitle } from './components/TodoTitle';
 import './App.css';
 
 const defaultTodos = [
-  { text: 'Cortar Cebolla', completed: true },
-  { text: 'Tomar el curso de introduccion a react', completed: true },
+  { text: 'Cortar Cebolla', completed: false },
+  { text: 'Tomar el curso de introduccion a react', completed: false },
   { text: 'Llorar con la llorona', completed: false },
 ]
 
@@ -32,6 +32,19 @@ function App() {
     });
   }
  
+  const completeTodo = (text) => {
+    const todoIndex = todos.findIndex(todo => todo.text === text);
+    const newTodos = [...todos];
+    newTodos[todoIndex].completed = true;
+    setTodos(newTodos);
+  };
+
+  const deleteTodo = (text) => {
+    const todoIndex = todos.findIndex(todo => todo.text === text);
+    const newTodos = [...todos];
+    newTodos.splice(todoIndex, 1);
+    setTodos(newTodos);
+  };
 
   return (
     <div className='app'>
@@ -49,7 +62,13 @@ function App() {
 
       <TodoList>
         {searchedTodos.map(todo => (
-          <TodoItem key={todo.text} text={todo.text} completed={todo.completed} />
+          <TodoItem 
+          key={todo.text} 
+          text={todo.text} 
+          completed={todo.completed} 
+          onComplete = {()=> completeTodo(todo.text)}
+          onDelete = {()=> deleteTodo(todo.text)}
+          />
         ))}
       </TodoList>
 
