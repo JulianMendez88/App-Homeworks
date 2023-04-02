@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/https//JulianMendez88.github.io/app-homeworks/static/css/main.cba7ed19.css",
+    "main.js": "/https//JulianMendez88.github.io/app-homeworks/static/js/main.f2113953.js",
+    "index.html": "/https//JulianMendez88.github.io/app-homeworks/index.html",
+    "main.cba7ed19.css.map": "/https//JulianMendez88.github.io/app-homeworks/static/css/main.cba7ed19.css.map",
+    "main.f2113953.js.map": "/https//JulianMendez88.github.io/app-homeworks/static/js/main.f2113953.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cba7ed19.css",
+    "static/js/main.f2113953.js"
+  ]
+}
