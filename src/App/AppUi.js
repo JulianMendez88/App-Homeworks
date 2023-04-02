@@ -8,44 +8,51 @@ import { TodoTitle } from '../components/TodoTitle';
 import './AppUI.css';
 
 function AppUI({
-    totalTodos,
-    completedTodos,
-    searchValue,
-    setSearchValue,
-    searchedTodos,
-    completeTodo,
-    deleteTodo,
-}){
-    return ( 
+  loading,
+  error,
+  totalTodos,
+  completedTodos,
+  searchValue,
+  setSearchValue,
+  searchedTodos,
+  completeTodo,
+  deleteTodo,
+}) {
+  return (
     <div className='app'>
-   
-    <TodoTitle />
 
-    <TodoCounter
-      total={totalTodos}
-      completed={completedTodos}
-    />
+      <TodoTitle />
 
-    <TodoSearch
-      searchValue={searchValue}
-      setSearchValue={setSearchValue}
-    />
+      <TodoCounter
+        total={totalTodos}
+        completed={completedTodos}
+      />
 
-    <TodoList>
-      {searchedTodos.map(todo => (
-        <TodoItem 
-        key={todo.text} 
-        text={todo.text} 
-        completed={todo.completed} 
-        onComplete = {()=> completeTodo(todo.text)}
-        onDelete = {()=> deleteTodo(todo.text)}
-        />
-      ))}
-    </TodoList>
+      <TodoSearch
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+      />
 
-    <CreateTodoButton />
+      <TodoList>
+        {error && <p>Desesperate! hubo un error...</p>}
+        {loading && <p>Estamos cargando, no desesperes</p>}
+        {(!loading && !searchedTodos.length) &&<p>Crea tu primer TODO</p>}
 
-  </div>);
+
+        {searchedTodos.map(todo => (
+          <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+            onComplete={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
+          />
+        ))}
+      </TodoList>
+
+      <CreateTodoButton />
+
+    </div>);
 }
 
-export { AppUI}
+export { AppUI }
